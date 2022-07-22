@@ -20,11 +20,17 @@
 // }
 
 
-let arr = Array(100); // empty arr 100
-arr = [...Array(100).keys()]; // arr 0-99 nums
-arr = [...Array(100).keys()].map(n => n+1); // 1-100
-arr = [...Array(100).keys()]
-                    .map(n => n+1)
-                        .map((n) => (n%3 ? '' : 'Fizz') + (n%5 ? '' : 'Buzz') || n)
-                    .join('\n');
-console.log(arr);
+// let arr = Array(100); // empty arr 100
+// arr = [...Array(100).keys()]; // arr 0-99 nums
+// arr = [...Array(100).keys()].map(n => n+1); // 1-100
+// arr = [...Array(100).keys()]
+//                     .map(n => n+1)
+//                         .map((n) => (n%3 ? '' : 'Fizz') + (n%5 ? '' : 'Buzz') || n)
+//                     .join('\n');
+// console.log(arr);
+
+for (let i = 1; i <= 100; i++) {
+    let f = i % 3 === 0,
+        b = i % 5 === 0;
+    console.log(f ? (b ? 'FizzBuzz' : 'Fizz'): b ? 'Buzz' : i);
+}
