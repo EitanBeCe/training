@@ -227,7 +227,7 @@
 
 
 // // // 15. Remove duplicates of an array and return an array of only unique elements  
-// const array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+const array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
 // // let set = new Set(array);
 // // console.log(set);
 
@@ -241,6 +241,11 @@
 //         i--;
 //     }
 // }
+// console.log(sortedArr);
+
+
+
+// const sortedArr = array.filter((n, i, array) => array.indexOf(n) === i);
 // console.log(sortedArr);
 
 
