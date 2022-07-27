@@ -1,3 +1,3 @@
 # training
 
-- JS trainings in arrays and stings
+- JS trainings on arrays, stings etc.
