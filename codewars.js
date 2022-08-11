@@ -1,35 +1,53 @@
-'use strict';
+"use strict";
 
+// https://www.codewars.com/kata/523a86aa4230ebb5420001e1/javascript
 
-// https://www.codewars.com/kata/54dc6f5a224c26032800005c
+//
+//
+// // https://www.codewars.com/kata/56ba65c6a15703ac7e002075/train/javascript
+// function findNextPower(val, pow_) {
+//   return Math.ceil(Math.ceil(val ** (1 / pow_)) ** pow_);
+// }
+// findNextPower(12385, 3); // == 13824
+// findNextPower(1245678, 5); // == 1419857
 
+//
+//
+// https://www.codewars.com/kata/5511b2f550906349a70004e1/train/javascript
+// 5 kuy
+// const lastDigit = function (str1, str2) {
+// console.log((str1 ** str2).toString().slice(-1));
+// console.log(4444 % 10);
+// return (str1 ** str2).toString().slice(-1); // Doesn't work with big nums
+// };
+// lastDigit("4", "1"); // returns 4
+// lastDigit("4", "2"); // returns 6
+// lastDigit("9", "7"); // returns 9
+// lastDigit("10", "10000000000"); // returns 0
 
+//
+//
+// // https://www.codewars.com/kata/5ace2d9f307eb29430000092/train/javascript
+// 1
+// function modifyMultiply(str, i, n) {
+//   console.log(Array(n).fill(str.split(" ")[i]).join("-"));
+// }
+// modifyMultiply("This is a string", 3, 5);
 
+// 2
+// const modifyMultiply = (str, index, mul) => {
+//   const arrStr = str.split(" ");
+//   let res = "";
+//   for (let i = 0; i < mul; i++) {
+//     res += "-" + arrStr[index];
+//   }
+//   console.log(res.slice(1));
+//   return res.slice(1);
+// };
+// modifyMultiply("This is a string", 3, 5); // => "string-string-string-string-string"
 
-const store = l.reduce((acc, inventory) => {
-    const [[code], qty] = inventory.split(" ");
-    const stock = (acc[code] || 0) + Number(qty);
-    return {
-      ...acc,
-      [code]: stock
-    }
-  }, {});
-  
-  const counts = m.reduce((result, key) => ({
-    ...result,
-    [key]: store[key] || 0
-  }), {})
-  
-  const print = obj => Object.entries(obj)
-      .map(([k, v]) => `(${k} : ${v})`)
-      .join(" - ");
-  
-  console.log(print(counts));
-
-
-
-
-
+//
+//
 // function stockList(list, listCheck){
 //     let counterA = 0;
 //     let counterB = 0;
@@ -54,7 +72,7 @@ const store = l.reduce((acc, inventory) => {
 //                         break;
 //                     default:
 //                         break;
-//                 }   
+//                 }
 //             }
 //         }
 //     }
@@ -65,12 +83,11 @@ const store = l.reduce((acc, inventory) => {
 //     }
 //     return res;
 // }
-// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], 
+// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"],
 //                                         ["A", "B", "C", "D"]));
 // let b = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
 // let c = ["A", "B"];
 // console.log(stockList(b, c));
-
 
 // function stockList(list, listCheck){
 //     let counterA = 0;
@@ -95,17 +112,14 @@ const store = l.reduce((acc, inventory) => {
 //                         break;
 //                     default:
 //                         break;
-//                 }   
+//                 }
 
 //     }
 //     return `(A : ${counterA}) - (B : ${counterB}) - (C : ${counterC}) - (D : ${counterD})`;
 // }
 
-// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], 
+// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"],
 //                                         ["A", "B", "C", "D"]));
-
-
-
 
 // function stockList(list, listCheck){
 //     let counterA = 0;
@@ -130,7 +144,7 @@ const store = l.reduce((acc, inventory) => {
 //                         break;
 //                     default:
 //                         break;
-//                 }   
+//                 }
 //     }
 //     let res = `(A : ${counterA}) - (B : ${counterB}) - (C : ${counterC}) - (D : ${counterD})`;
 //     if (counterC === 0 && counterD === 0) {
@@ -155,7 +169,7 @@ const store = l.reduce((acc, inventory) => {
 //     return `(A : ${counterA}) - (B : ${counterB}) - (C : ${counterC}) - (D : ${counterD})`;
 // }
 
-// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], 
+// console.log(stockList(["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"],
 //                                         ["A", "B", "C", "W"]));
 // b = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
 // c = ["A", "B"];
