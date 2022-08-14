@@ -1,6 +1,22 @@
 "use strict";
 
 // https://www.codewars.com/kata/523a86aa4230ebb5420001e1/javascript
+// Find anagrams
+const anagrams = (word, arr) => {
+  let newArr = [];
+  let sortedWord = word.split("").sort().join("");
+  // console.log(sortedWord);
+  for (let w of arr) {
+    let sortedNewWord = w.split("").sort().join("");
+    if (sortedNewWord === sortedWord) {
+      newArr.push(w);
+    }
+  }
+  return newArr;
+};
+anagrams("abba", ["aabb", "abcd", "bbaa", "dada"]); // => ['aabb', 'bbaa']
+anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"]); // => ['carer', 'racer']
+anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
 
 //
 //
