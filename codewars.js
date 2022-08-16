@@ -5,7 +5,6 @@
 const anagrams = (word, arr) => {
   let newArr = [];
   let sortedWord = word.split("").sort().join("");
-  // console.log(sortedWord);
   for (let w of arr) {
     let sortedNewWord = w.split("").sort().join("");
     if (sortedNewWord === sortedWord) {
