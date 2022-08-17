@@ -1,30 +1,21 @@
-"use strict";
+'use strict';
 
 // https://www.codewars.com/kata/523a86aa4230ebb5420001e1/javascript
 // Find anagrams
-const anagrams = (word, arr) => {
-  let newArr = [];
-  let sortedWord = word.split("").sort().join("");
-  for (let w of arr) {
-    let sortedNewWord = w.split("").sort().join("");
-    if (sortedNewWord === sortedWord) {
-      newArr.push(w);
-    }
-  }
-  return newArr;
-};
-anagrams("abba", ["aabb", "abcd", "bbaa", "dada"]); // => ['aabb', 'bbaa']
-anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"]); // => ['carer', 'racer']
-anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
-
-//
-//
-// // https://www.codewars.com/kata/56ba65c6a15703ac7e002075/train/javascript
-// function findNextPower(val, pow_) {
-//   return Math.ceil(Math.ceil(val ** (1 / pow_)) ** pow_);
-// }
-// findNextPower(12385, 3); // == 13824
-// findNextPower(1245678, 5); // == 1419857
+// const anagrams = (word, arr) => {
+//   let newArr = [];
+//   let sortedWord = word.split("").sort().join("");
+//   for (let w of arr) {
+//     let sortedNewWord = w.split("").sort().join("");
+//     if (sortedNewWord === sortedWord) {
+//       newArr.push(w);
+//     }
+//   }
+//   return newArr;
+// };
+// anagrams("abba", ["aabb", "abcd", "bbaa", "dada"]); // => ['aabb', 'bbaa']
+// anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"]); // => ['carer', 'racer']
+// anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
 
 //
 //
@@ -42,24 +33,34 @@ anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
 
 //
 //
-// // https://www.codewars.com/kata/5ace2d9f307eb29430000092/train/javascript
-// 1
-// function modifyMultiply(str, i, n) {
-//   console.log(Array(n).fill(str.split(" ")[i]).join("-"));
-// }
-// modifyMultiply("This is a string", 3, 5);
+// https://www.codewars.com/kata/57a60bad72292d3e93000a5a
+// Make acronym. Code wars -> C, w -> C W -> CW
+const toAcronym = (inp) =>
+  inp.split` `.map((word) => word.slice(0, 1).toUpperCase()).join``;
+console.log(toAcronym('Code Wars')); // "CW"
 
-// 2
-// const modifyMultiply = (str, index, mul) => {
-//   const arrStr = str.split(" ");
-//   let res = "";
-//   for (let i = 0; i < mul; i++) {
-//     res += "-" + arrStr[index];
+//
+//
+//https://www.codewars.com/kata/5ba178be875de960a6000187/train/javascript
+// function findLowestInt(k) {
+//   let k2 = k + 1;
+//   const sorty = (num, mul) => {
+//     return (num * mul).toString().split('').sort().join('');
+//   };
+
+//   for (let i = 1; i < 1000000000; i++) {
+//     if (sorty(k, i) === sorty(k2, i)) {
+//       return i;
+//     }
 //   }
-//   console.log(res.slice(1));
-//   return res.slice(1);
-// };
-// modifyMultiply("This is a string", 3, 5); // => "string-string-string-string-string"
+//   return 'Not found';
+// }
+// console.log(findLowestInt(100)); //8919
+// console.log(findLowestInt(325)); //477
+
+//
+//
+// https://www.codewars.com/kata/5ba178be875de960a6000187
 
 //
 //
@@ -91,7 +92,7 @@ anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
 //             }
 //         }
 //     }
-//     //костыль подгона под их ответ, которые не соответствует вроде запросу задания
+//
 //     let res = `(A : ${counterA}) - (B : ${counterB}) - (C : ${counterC}) - (D : ${counterD})`;
 //     if (counterC === 0 && counterD === 0) {
 //         return res.slice(0,23);
@@ -189,3 +190,33 @@ anagrams("laser", ["lazing", "lazy", "lacer"]); // => []
 // b = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
 // c = ["A", "B"];
 // stockList(b, c);
+
+//
+//
+// // https://www.codewars.com/kata/56ba65c6a15703ac7e002075/train/javascript
+// function findNextPower(val, pow_) {
+//   return Math.ceil(Math.ceil(val ** (1 / pow_)) ** pow_);
+// }
+// findNextPower(12385, 3); // == 13824
+// findNextPower(1245678, 5); // == 1419857
+
+//
+//
+// // https://www.codewars.com/kata/5ace2d9f307eb29430000092/train/javascript
+// 1
+// function modifyMultiply(str, i, n) {
+//   console.log(Array(n).fill(str.split(" ")[i]).join("-"));
+// }
+// modifyMultiply("This is a string", 3, 5);
+
+// 2
+// const modifyMultiply = (str, index, mul) => {
+//   const arrStr = str.split(" ");
+//   let res = "";
+//   for (let i = 0; i < mul; i++) {
+//     res += "-" + arrStr[index];
+//   }
+//   console.log(res.slice(1));
+//   return res.slice(1);
+// };
+// modifyMultiply("This is a string", 3, 5); // => "string-string-string-string-string"
