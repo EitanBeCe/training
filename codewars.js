@@ -35,9 +35,9 @@
 //
 // https://www.codewars.com/kata/57a60bad72292d3e93000a5a
 // Make acronym. Code wars -> C, w -> C W -> CW
-const toAcronym = (inp) =>
-  inp.split` `.map((word) => word.slice(0, 1).toUpperCase()).join``;
-console.log(toAcronym('Code Wars')); // "CW"
+// const toAcronym = (inp) =>
+//   inp.split` `.map((word) => word.slice(0, 1).toUpperCase()).join``;
+// console.log(toAcronym('Code Wars')); // "CW"
 
 //
 //
