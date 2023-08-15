@@ -18,6 +18,34 @@ class LinkedList {
         this.length = 1;
     }
 
+    // this.head = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: {
+    //                     value: 5,
+    //                     next: null
+    //                 }
+    //             }
+    //         }
+    //     }
+    // };
+
+    printList() {
+        const array = [];
+        let currNode = this.head;
+        while (currNode !== null) {
+            array.push(currNode.value);
+            currNode = currNode.next;
+        }
+
+        return array;
+    }
+
     append(value) {
         const newNode = new Node(value);
         // const newNode = {
@@ -39,11 +67,56 @@ class LinkedList {
 
         this.length++;
     }
+
+    insert(index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+
+        const newNode = new Node(value);
+
+        const leader = this.traverseToIndex(index-1); 
+        const holdingPointer = leader.next;
+        leader.next = newNode;
+        newNode.next = holdingPointer;
+        this.length++;
+        // return this.printList();
+    }
+
+    remove (index) {
+        if (index >= this.length) {
+            return;
+        }
+
+        const leader = this.traverseToIndex(index-1);
+        const deletingNode = leader.next;
+        const last = deletingNode.next;
+        leader.next = last;
+
+        this.length--;
+    }
+
+    traverseToIndex(index) {
+        // check params
+
+        let counter = 0;
+        let currentNode = this.head
+
+        while (counter !== index) {
+            currentNode = currentNode.next
+            counter++
+        }
+
+        return currentNode;
+    }
 }
     
     let myLinkedList = new LinkedList(10);
     myLinkedList.append(5);
     myLinkedList.append(16);
     myLinkedList.prepend(1);
-    console.log(myLinkedList);
-    console.log(myLinkedList.head.next); 
+    myLinkedList.insert(2, 92);
+    myLinkedList.insert(3, 93);
+    myLinkedList.remove(3)
+
+    console.log(myLinkedList.printList());
