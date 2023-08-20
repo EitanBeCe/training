@@ -96,6 +96,27 @@ class LinkedList {
         this.length--;
     }
 
+    reverse () {
+        if (!this.head.next) {
+            return this.head
+        }
+
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+
+        while (second) {
+            const temp = second.next;
+
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+    }
+
     traverseToIndex(index) {
         // check params
 
@@ -118,5 +139,6 @@ class LinkedList {
     myLinkedList.insert(2, 92);
     myLinkedList.insert(3, 93);
     myLinkedList.remove(3)
+    myLinkedList.reverse()
 
     console.log(myLinkedList.printList());

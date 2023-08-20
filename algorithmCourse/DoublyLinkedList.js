@@ -94,7 +94,7 @@ class DoublyLinkedList {
             return;
         }
 
-        // Check if index == length need to make tail--
+        // Check. if index == length   need to make tail--
 
         const leader = this.traverseToIndex(index-1);
         const deletingNode = leader.next;
