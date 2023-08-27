@@ -1,0 +1,1 @@
+// Only with linked list. Unshift Shift in array is O(n)
