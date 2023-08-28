@@ -16,7 +16,7 @@ class Stack {
     }
 
     peek() { // To see top element
-        console.log(this.top);;
+        console.log(this.top);
     }
 
     push(value) { // Add to the top of the stack (next: null have to be on bottom)
@@ -50,7 +50,28 @@ class Stack {
     }
 }
 
-const myStack = new Stack();
+
+// With Array
+class StackArr {
+    constructor() {
+        this.array = [];
+    }
+
+    peek() { // To see top element
+        console.log(this.array[this.array.length-1]);
+    }
+
+    push(value) { // Add to the top of the stack (next: null have to be on bottom)
+        this.array.push(value)
+    }
+
+    pop() { // Remove from top
+        this.array.pop()
+    }
+}
+
+// const myStack = new Stack();
+const myStack = new StackArr()
 myStack.push(1);
 myStack.push(2);
 myStack.push(3);
