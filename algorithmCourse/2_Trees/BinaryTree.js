@@ -39,7 +39,6 @@ class BinarySearchTree {
                 }
             }
         }
-
     }
 
     // made ifelse and while my way, didnt rewrite on his solution
@@ -69,6 +68,68 @@ class BinarySearchTree {
                 currentNode = currentNode.left;
             }
         }
+    }
+
+    remove() {
+        if (!this.root) {
+            return;
+        }
+
+        let currentNode = this.root,
+            parentNode = null;
+
+        // To remove we need to go to right child(1), then its left(2) and make it a parent of 1.
+        while (currentNode) {
+            if (value < currentNode.right) {
+                parentNode = currentNode;
+                currentNode = parentNode.left;
+            } else if (value > currentNode.value) {
+                parentNode = currentNode;
+                currentNode = parentNode.right;
+            } else if (value === currentNode.value) {
+                // We found a Node
+
+                // 1 No right child:
+                if (currentNode.right === null) {
+                    if (parentNode = null) {
+                        // I didn't understand this condition
+                        this.root = currentNode.left;
+                    } else {
+                        // If parent > current, make left child a child of parent
+                        if (currentNode.value < parentNode.value) {
+                            parentNode.left = currentNode.left;
+
+                        // If parent < current, make left child a right child of parent
+                        } else if (currentNode.value > currentNode.value) {
+                            parentNode.right = currentNode.left;
+                        }
+                    }
+
+                // 2 Right child doesn't have a left child
+                } else if (currentNode.right.left === null) {
+                    if (parentNode = null) {
+                        // I didn't understand this condition
+                        this.root = currentNode.left;
+                    } else {
+                        currentNode.right.left = currentNode.left;
+
+                        // If parent > current, make right child of the left the parent
+                        if (currentNode.value < parentNode.value) {
+                            parentNode.left = currentNode.right;
+
+                        // If parent < current, make right child a right child of a parent
+                        } else if (currentNode.value > parentNode.value) {
+                            parentNode.right = currentNode.right;
+                        }
+                    }
+
+                // 3 Right child that has left child
+                } else {
+                    
+                }
+            }
+        }
+
     }
 }
 
