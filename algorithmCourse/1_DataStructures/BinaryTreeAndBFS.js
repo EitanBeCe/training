@@ -6,6 +6,10 @@ class Node {
     }
 }
 
+//           9
+//     4          20
+//   1   6     15    170
+
 class BinarySearchTree {
     constructor() {
         this.root = null;
@@ -155,6 +159,28 @@ class BinarySearchTree {
         }
 
     }
+
+    // Need to recieve queue with 9 4 20 1 6 15 170
+    breadthFirstSearch() {
+        let currentNode = this.root,
+            list = [],
+            queue = [];
+
+        queue.push(currentNode);
+
+        while (queue.length > 0) {
+            currentNode = queue.shift();
+            console.log(currentNode.value);
+            list.push(currentNode.value);
+            
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+    }  
 }
 
 const tree = new BinarySearchTree(); 
@@ -165,11 +191,12 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
+tree.breadthFirstSearch();
 
-tree.remove(170); // 170 didnt work?
-// tree.lookup(170);
-console.log(tree.lookup(170));
-console.log(JSON.stringify(traverse(tree.root)));
+// tree.remove(170); // 170 didnt work?
+// tree.lookup(170); 
+// console.log(tree.lookup(170));
+// console.log(JSON.stringify(traverse(tree.root)));
 
 //           9
 //     4          20
