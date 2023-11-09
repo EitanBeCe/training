@@ -180,7 +180,46 @@ class BinarySearchTree {
                 queue.push(currentNode.right);
             }
         }
-    }  
+
+        return list;
+    }
+
+    breadthFirstSearchRecursive(queue, list) {
+        if (!queue.length) {
+            return list;
+        }
+
+        let currentNode = queue.shift()
+        list.push(currentNode.value)
+
+        if (currentNode.left) {
+            queue.push(currentNode.left);
+        }
+        if (currentNode.right) {
+            queue.push(currentNode.right);
+        }
+
+        return this.breadthFirstSearchRecursive(queue, list);
+    }
+
+    // depthFirstSearch() {
+        // Types:
+        // 1 InOrder - 1 4 6 9 15 20 170
+        // 2 Preorder - 9 4 1 6 20 15 170  (useful to recreate a tree)
+        // 3 PostOrder - 1 6 4 15 170 20 9
+    // }
+
+    DPSInorder() {
+        return traverseInorder(this.root, []);
+    }
+
+    DPSPostorder() {
+        return traversePostorder(this.root, []);
+    }
+
+    DPSPreorder() {
+        return traversePreorder(this.root, []);
+    }
 }
 
 const tree = new BinarySearchTree(); 
@@ -191,7 +230,11 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-tree.breadthFirstSearch();
+
+console.log(
+    // tree.breadthFirstSearch()
+    tree.breadthFirstSearchRecursive([tree.root], [])
+);
 
 // tree.remove(170); // 170 didnt work?
 // tree.lookup(170); 
