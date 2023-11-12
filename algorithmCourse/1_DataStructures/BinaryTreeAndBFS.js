@@ -170,7 +170,7 @@ class BinarySearchTree {
 
         while (queue.length > 0) {
             currentNode = queue.shift();
-            console.log(currentNode.value);
+            // console.log(currentNode.value);
             list.push(currentNode.value);
             
             if (currentNode.left) {
@@ -209,17 +209,65 @@ class BinarySearchTree {
         // 3 PostOrder - 1 6 4 15 170 20 9
     // }
 
-    DPSInorder() {
+    DFSInorder() {
         return traverseInorder(this.root, []);
     }
 
-    DPSPostorder() {
+    DFSPostorder() {
         return traversePostorder(this.root, []);
     }
 
-    DPSPreorder() {
+    DFSPreorder() {
         return traversePreorder(this.root, []);
     }
+}
+
+function traverseInorder(node, list) {
+    console.log(node.value);
+
+    if (node.left) {
+        traverseInorder(node.left, list)
+    }
+
+    list.push(node.value);
+
+    if (node.right) {
+        traverseInorder(node.right, list)
+    }
+
+    return list;
+}
+
+function traversePreorder(node, list) {
+    console.log(node.value);
+
+    list.push(node.value);
+
+    if (node.left) {
+        traversePreorder(node.left, list)
+    }
+
+    if (node.right) {
+        traversePreorder(node.right, list)
+    }
+
+    return list;
+}
+
+function traversePostorder(node, list) {
+    console.log(node.value);
+
+    if (node.left) {
+        traversePostorder(node.left, list)
+    }
+
+    if (node.right) {
+        traversePostorder(node.right, list)
+    }
+
+    list.push(node.value);
+
+    return list;
 }
 
 const tree = new BinarySearchTree(); 
@@ -233,7 +281,10 @@ tree.insert(1);
 
 console.log(
     // tree.breadthFirstSearch()
-    tree.breadthFirstSearchRecursive([tree.root], [])
+    // tree.breadthFirstSearchRecursive([tree.root], [])
+    // tree.DFSInorder([tree.root], [])
+    // tree.DFSPreorder([tree.root], [])
+    tree.DFSPostorder([tree.root], [])
 );
 
 // tree.remove(170); // 170 didnt work?
