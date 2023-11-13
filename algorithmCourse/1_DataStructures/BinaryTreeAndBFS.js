@@ -270,6 +270,43 @@ function traversePostorder(node, list) {
     return list;
 }
 
+// This one didn't work right, probably because of && insead of || in row // if((lower < node.val) && (upper > node.val)){
+// function isValidBST(root) {
+//     return validate(root, -Infinity, Infinity);
+// };
+// function validate(node, lower, upper){
+//     if (node == null){
+//         // empty node or empty tree
+//         return true;
+//     }
+    
+//     if((lower < node.val) && (upper > node.val)){
+//         // check if all tree nodes follow BST rule
+//         return validate(node.left, lower, node.val) && validate(node.right, node.val, upper);
+//     } else {
+//         // early reject when we find violation
+//         return false;
+//     }
+// }
+
+var isValidBST = function(root, minimum, maximum) {
+    // Base case: root is null...
+    if(root == null) return true;
+    // If the value of root is less or equal to minimum...
+    // Or If the value of root is greater or equal to maximum...
+    if(root.val <= minimum || root.val >= maximum) return false;
+    // Recursively call the function for the left and right subtree...
+    return isValidBST(root.left, minimum, root.val) && isValidBST(root.right, root.val, maximum);
+};
+
+function traverse(node) {
+    const tree = {value: node.value};
+
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? null : traverse(node.right);
+    return tree;
+}
+
 const tree = new BinarySearchTree(); 
 tree.insert(9);
 tree.insert(4);
@@ -279,28 +316,20 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 
+// tree.remove(170); // 170 didnt work?
+// tree.lookup(170); 
+// console.log(tree.lookup(170));
+console.log(JSON.stringify(traverse(tree.root)));
+
 console.log(
     // tree.breadthFirstSearch()
     // tree.breadthFirstSearchRecursive([tree.root], [])
     // tree.DFSInorder([tree.root], [])
     // tree.DFSPreorder([tree.root], [])
-    tree.DFSPostorder([tree.root], [])
+    // tree.DFSPostorder([tree.root], []),
+    isValidBST(tree.root, -Infinity, Infinity) // Not sure if it works right
 );
-
-// tree.remove(170); // 170 didnt work?
-// tree.lookup(170); 
-// console.log(tree.lookup(170));
-// console.log(JSON.stringify(traverse(tree.root)));
 
 //           9
 //     4          20
 //   1   6     15    170
-
-function traverse(node) {
-    const tree = {value: node.value};
-
-    tree.left = node.left === null ? null : traverse(node.left);
-    tree.right = node.right === null ? null : traverse(node.right);
-    return tree;
-    
-}
