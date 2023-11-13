@@ -289,7 +289,8 @@ function traversePostorder(node, list) {
 //     }
 // }
 
-var isValidBST = function(root, minimum, maximum) {
+// Is Binary search tree valid
+function isValidBST(root, minimum, maximum) {
     // Base case: root is null...
     if(root == null) return true;
     // If the value of root is less or equal to minimum...
