@@ -3,20 +3,25 @@ function addTo80 () {
     return n + 80;
 }
 
-let cache = {};
+function memoizeAddTo80() {
+    let cache = {};
 
-function memoizeAddTo80(n) {
-    if (n in cache) {
-        return cache[n];
-    } else {
-        console.log("long time calculation");
-        cache[n] = n + 80;
-        return cache[n];
+    return function(n) { // Needed for usage of cache{} inside the function, and not to put it in global scope
+        if (n in cache) {
+            return cache[n];
+        } else {
+            console.log("long time calculation");
+            cache[n] = n + 80;
+            return cache[n];
+        }
     }
 }
 
-console.log(memoizeAddTo80(5));
-console.log(memoizeAddTo80(5));
-console.log(memoizeAddTo80(6));
-console.log(memoizeAddTo80(6));
-console.log(memoizeAddTo80(6));
+const memoized = memoizeAddTo80();
+
+console.log(memoized(5));
+console.log(memoized(5));
+console.log(memoized(5));
+console.log(memoized(6));
+console.log(memoized(6));
+console.log(memoized(6));
