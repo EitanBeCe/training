@@ -2,6 +2,41 @@
 
 
 
+
+// 7
+// https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+DO IT
+
+// 6
+// https://leetcode.com/problems/fizz-buzz/description/
+// var fizzBuzz = function (n) {
+//     const result = [];
+//     for (let i = 1; i <= n; i++) {
+//         if (i % 5 === 0 && i % 3 === 0) result.push("FizzBuzz");
+//         else if (i % 3 === 0) result.push("Fizz");
+//         else if (i % 5 === 0) result.push("Buzz");
+//         else result.push(i.toString());
+//     }
+//     return result;
+// };
+
+// 5
+// https://leetcode.com/problems/reverse-string/description/
+// var reverseString = function(s) {
+//     // one points to head position, the other points to tail position
+//     let [left, right] = [0, s.length-1];
+    
+//     // reverse string by two pointers
+//     while( left < right ){
+//         [ s[left], s[right] ] = [ s[right], s[left] ];
+        
+//         left += 1;
+//         right -= 1;
+//     }
+    
+//     return;
+// };
+
 // 4
 // https://leetcode.com/problems/move-zeroes/description/
 // const nums = [0,1,0,3,12]
