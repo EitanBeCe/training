@@ -1,5 +1,70 @@
 'use strict';
 
+
+// https://www.codewars.com/kata/537e18b6147aa838f600001b/train/javascript
+const lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.';
+const lipsu = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. ';
+
+function justify(text, width) {
+  const words = text.trim().split(' ')
+  const lines = []
+  let line = ''
+  let lineLen = 0
+
+  for (let index = 0; index < words.length; index++) {
+    const word = words[index]
+
+    // console.log(word);
+    // console.log(lineLen + word.length);
+    
+
+    if ((lineLen + word.length + 1) < width) {
+      // Add word
+      if (line.length === 0) {
+        line = word
+      } else {
+        line += ' ' + words[index]
+      }
+
+      lineLen = line.length
+
+      // console.log(lineLen < width);
+    } else {
+      lines.push(line)
+      line = ''
+      lineLen = 0
+      index--
+    }
+
+    // console.log(lineLen);
+  }
+
+  if (line) lines.push(line);
+
+  // console.log(lines);
+  // console.log(lines[0].length);
+
+  // return text
+}
+
+justify(lipsu, 30)
+
+
+// https://www.codewars.com/kata/52685f7382004e774f0001f7/train/javascript
+// function humanReadable (seconds) {
+//   const addZero = (num) => num.toString().length === 1 ? `0${num}` : num
+
+//   const milliseconds = seconds * 1000,
+//         secondsVal = addZero(new Date(milliseconds).getSeconds()),
+//         minutes = addZero(new Date(milliseconds).getMinutes()),
+//         hours = addZero(Math.floor(seconds / 60 / 60));
+
+//   return `${hours}:${minutes}:${secondsVal}`;
+// }
+// console.log(humanReadable(86499));
+
+
+
 // https://www.codewars.com/kata/523a86aa4230ebb5420001e1/javascript
 // Find anagrams
 // const anagrams = (word, arr) => {
