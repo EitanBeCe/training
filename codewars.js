@@ -6,48 +6,32 @@ const lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibu
 const lipsu = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. ';
 
 function justify(text, width) {
-  const words = text.trim().split(' ')
+  const words = text.trim().split(/\s+/)
   const lines = []
   let line = ''
   let lineLen = 0
 
   for (let index = 0; index < words.length; index++) {
     const word = words[index]
+    const candidateLine = lineLen === 0 ? word : (line + ' ' + word);
 
-    // console.log(word);
-    // console.log(lineLen + word.length);
-    
-
-    if ((lineLen + word.length + 1) < width) {
-      // Add word
-      if (line.length === 0) {
-        line = word
-      } else {
-        line += ' ' + words[index]
-      }
-
-      lineLen = line.length
-
-      // console.log(lineLen < width);
+    if (candidateLine.length <= width) {
+      line = candidateLine
+      lineLen = candidateLine.length
     } else {
-      lines.push(line)
-      line = ''
-      lineLen = 0
-      index--
+      if (line) lines.push(line); // check if empty
+      line = word
+      lineLen = word.length
     }
-
-    // console.log(lineLen);
   }
 
   if (line) lines.push(line);
 
-  // console.log(lines);
-  // console.log(lines[0].length);
-
-  // return text
+  return lines.join('\n');
 }
 
-justify(lipsu, 30)
+console.log(justify(lipsu, 30));
+
 
 
 // https://www.codewars.com/kata/52685f7382004e774f0001f7/train/javascript
