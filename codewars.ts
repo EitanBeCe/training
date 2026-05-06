@@ -1,36 +1,52 @@
-'use strict';
+// 'use strict';
+
+
+// https://www.codewars.com/kata/5267faf57526ea542e0007fb/javascript
+
+const mathRound = (num: number) => {
+    // if (!num || isNaN(num)) {
+    //     return NaN
+    // }
+
+    if (num % 1 === 0) {
+        return num
+    }
+}
+
+console.log(mathRound(2));
+
 
 
 // https://www.codewars.com/kata/537e18b6147aa838f600001b/train/javascript
-const lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.';
-const lipsu = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. ';
+// const lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.';
+// const lipsu = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. ';
 
-function justify(text, width) {
-  const words = text.trim().split(/\s+/)
-  const lines = []
-  let line = ''
-  let lineLen = 0
+// function justify(text, width) {
+//   const words = text.trim().split(/\s+/)
+//   const lines = []
+//   let line = ''
+//   let lineLen = 0
 
-  for (let index = 0; index < words.length; index++) {
-    const word = words[index]
-    const candidateLine = lineLen === 0 ? word : (line + ' ' + word);
+//   for (let index = 0; index < words.length; index++) {
+//     const word = words[index]
+//     const candidateLine = lineLen === 0 ? word : (line + ' ' + word);
 
-    if (candidateLine.length <= width) {
-      line = candidateLine
-      lineLen = candidateLine.length
-    } else {
-      if (line) lines.push(line); // check if empty
-      line = word
-      lineLen = word.length
-    }
-  }
+//     if (candidateLine.length <= width) {
+//       line = candidateLine
+//       lineLen = candidateLine.length
+//     } else {
+//       if (line) lines.push(line); // check if empty
+//       line = word
+//       lineLen = word.length
+//     }
+//   }
 
-  if (line) lines.push(line);
+//   if (line) lines.push(line);
 
-  return lines.join('\n');
-}
+//   return lines.join('\n');
+// }
 
-console.log(justify(lipsu, 30));
+// console.log(justify(lipsu, 30));
 
 
 
