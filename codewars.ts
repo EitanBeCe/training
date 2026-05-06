@@ -2,18 +2,40 @@
 
 
 // https://www.codewars.com/kata/5267faf57526ea542e0007fb/javascript
+// Math.round() Math.ceil() Math.floor()
 
-const mathRound = (num: number) => {
-    // if (!num || isNaN(num)) {
-    //     return NaN
-    // }
+// Math.round = (num: number) : number => {
+//     // if (!num || isNaN(num)) {
+//     //     return NaN
+//     // }
 
-    if (num % 1 === 0) {
-        return num
-    }
-}
+//     const reminder = num % 1
 
-console.log(mathRound(2));
+//     if (reminder >= 0.5) {
+//         return num - reminder + 1
+//     } else {
+//         return num - reminder
+//     }
+// }
+
+// console.log(Math.round(2.1));
+
+
+// Math.ceil = function(num) : number {
+//     const reminder = num % 1
+
+//     if (reminder) {
+//         return num + 1 - reminder
+//     }
+
+//     return num
+// };
+
+// Math.floor = function(num) : number{
+//     const reminder = num % 1
+
+//     return num - reminder
+// };
 
 
 
